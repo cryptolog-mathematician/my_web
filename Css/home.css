@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+}
+.hom-navim{
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: space-between;
+}
+.hom-navim div:first-child{
+    flex-grow:5; 
+}
+.hom-navim div:last-child{
+    margin-left: 20px;
+    flex-grow:1; 
+}
+.hom-navim a{
+    color: black;
+}
+.searchtxt{
+    width: 250px;
+    margin-right: 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-left: 10px;
+    outline:none;
+    padding: 0 3px;
+}
+.searchbtn{
+    margin-left: -10px;
+    background: none;
+    border: none;
+    outline:none;
+    cursor: pointer;
+}
