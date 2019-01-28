@@ -1,35 +1,121 @@
 *{
     box-sizing: border-box;
 }
+body{
+    margin: 0;
+    padding: 0;
+}
 .hom-navim{
+    background: #2d373c;
     display: flex;
-    flex-direction: row wrap;
+    flex-flow: row;
+    flex-wrap: wrap;
     justify-content: space-between;
+    padding-top: 10px;
+    height: 55px;
+    align-content: center;
 }
-.hom-navim div:first-child{
-    flex-grow:5; 
+.hom-nav-last{
+    padding-top: 10px;
 }
-.hom-navim div:last-child{
-    margin-left: 20px;
-    flex-grow:1; 
+.hom-navim ul{
+    margin: auto;
+    font-size: 20px; 
+    letter-spacing: 3px ;
+    display: flex;
 }
-.hom-navim a{
-    color: black;
+.hom-navim li{
+    list-style-type: none;
 }
 .searchtxt{
     width: 250px;
     margin-right: 0;
     background: none;
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
     margin-left: 10px;
     outline:none;
     padding: 0 3px;
+    color: white;
 }
 .searchbtn{
-    margin-left: -10px;
+    margin-right: 25px;
     background: none;
     border: none;
     outline:none;
     cursor: pointer;
+    color: white;
+}
+  
+.hom-navim a{
+    font-family: 'Courier New', Courier, monospace;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 5px 15px;
+    text-decoration: none;
+  }
+  
+  li a:hover, .dropdown:hover .dropbtn {
+    background: white;
+    color: #2d373c;
+    font-weight: 600;
+    text-decoration: underline; 
+    transition: 0.1s;
+  }
+  
+  .dropdown-content {
+    margin-top: 1px;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    min-width: 200px;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: #2d373c;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+      background-color: #2d373c;
+      opacity: 0.9;
+      color: white;
+    }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+@media screen and (max-width:768px){
+    .hom-navim ul{
+        display: block;
+        font-size: 16px; 
+    }
+    .hom-navim li{
+        padding: 5px;
+    }
+    .hom-navim{
+        justify-content: flex-start;
+        padding-top: 10px;
+        display: block;
+    }
+    .hom-nav-first{
+        margin-left: -15px;
+    }
+    .hom-nav-last{
+        margin-left: 30px;
+    }
+    .searchtxt{
+        width: 180px;
+    }
+}
+@media screen and (min-width:768px) and (max-width:861px){
+    .hom-navim ul{
+        font-size: 15px; 
+    }
 }

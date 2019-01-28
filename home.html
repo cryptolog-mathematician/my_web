@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>HOME</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="Css/index.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="Css/home.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -14,22 +13,31 @@
 </head>
 
 <body>
-    <div class="container">
-        <nav class="hom-navim">
-            <div>
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="firsttry.html">Contact</a></li>
-                    <li><a href="firsttryhakkimda.html">About</a></li>
-                </ul>
-            </div>
-            <div>
-                <form action="">
-                    <input class="searchtxt" type="text" placeholder="Search.." name="search">
-                    <button class="searchbtn" type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
-        </nav>
+    <nav class="hom-navim">
+        <div class="hom-nav-first">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="firsttry.html">Contact</a></li>
+                <li><a href="firsttryhakkimda.html">About</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Dropdown</a>
+                    <div class="dropdown-content">
+                        <a href="#">Cryptology</a>
+                        <a href="#">Programing</a>
+                        <a href="#">Mathematics</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="hom-nav-last">
+            <form action="">
+                <input class="searchtxt" type="text" placeholder="Search.." name="search">
+                <button class="searchbtn" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </nav>
+    <div class="myslides">
+
     </div>
 </body>
 
