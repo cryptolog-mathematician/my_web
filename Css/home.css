@@ -91,7 +91,47 @@ body{
     display: block;
   }
 
-@media screen and (max-width:768px){
+/*-------------------Slides-----------------------------------------------------*/
+.mySlides {
+    display: none;
+  }
+.mySlides-show{
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    padding: 2px;
+}
+.mySlides-img{
+    max-height: 400px;
+}
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 15px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    letter-spacing: 2;
+    text-align: center;
+  }
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 2s;
+    animation-name: fade;
+    animation-duration: 2s;
+  }
+
+  @-webkit-keyframes fade {
+    from {opacity: .5} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .5} 
+    to {opacity: 1}
+  }
+  /*---------------------------------------------------------------------------*/
+  @media screen and (max-width:768px){
     .hom-navim ul{
         display: block;
         font-size: 16px; 
@@ -101,17 +141,27 @@ body{
     }
     .hom-navim{
         justify-content: flex-start;
-        padding-top: 10px;
+        padding: 10px 0;
         display: block;
+        height: auto;
     }
     .hom-nav-first{
         margin-left: -15px;
     }
     .hom-nav-last{
-        margin-left: 30px;
+        margin-left: 35px;
     }
     .searchtxt{
-        width: 180px;
+        width: 300px;
+    }
+    .dropdown:hover .dropdown-content {
+        display: inline-block;
+        margin-left: 1px;
+        margin-top: 0;
+    }
+    
+    .mySlides-img{
+        max-height: 250px;
     }
 }
 @media screen and (min-width:768px) and (max-width:861px){
