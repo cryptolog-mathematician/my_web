@@ -5,6 +5,19 @@ body{
     margin: 0;
     padding: 0;
 }
+h4{
+    letter-spacing: 2px;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    display: grid;
+    grid-auto-rows: auto auto auto;
+    width: 100%;
+}
 .hom-navim{
     background: #2d373c;
     display: flex;
@@ -14,6 +27,9 @@ body{
     padding-top: 10px;
     height: 55px;
     align-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 .hom-nav-last{
     padding-top: 10px;
@@ -117,7 +133,7 @@ body{
     display: none;
   }
 .mySlides-show{
-    max-width: 1000px;
+    max-width: 1200px;
     position: relative;
     margin: auto;
     padding: 2px;
@@ -137,9 +153,9 @@ body{
   }
   .fade {
     -webkit-animation-name: fade;
-    -webkit-animation-duration: 5s;
+    -webkit-animation-duration: 6s;
     animation-name: fade;
-    animation-duration: 5s;
+    animation-duration: 6s;
   }
 
   @-webkit-keyframes fade {
@@ -155,8 +171,65 @@ body{
     60% {opacity: 1}
     100% {opacity: .2}
   }
-  /*---------------------------------------------------------------------------*/
-  @media screen and (max-width:768px){
+/*---------------------------------------------------------------------------*/
+/*---------------------------------MAIN------------------------------------------*/
+.main{
+    display: flex;
+    background: #2d373c;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: white;
+    text-align: left; 
+    max-width: 1200px; 
+    margin: auto;
+}
+.sectionLeft{
+    flex-basis: 70%;
+    padding: 5px; 
+}
+.sectionRight{
+    flex-basis: 30%;
+    background: white;
+    color: #2d373c;
+    border: 2px solid #2d373c;
+    padding: 5px; 
+}
+.commentsBox{
+    border: 1px solid #2d373c;
+    padding: 0 3px;
+    margin-top: 1px;
+}
+.comments{
+    width: 100%;
+}
+.commentsIcons{
+    margin-left: -45px;
+}
+.commentsIcons u{
+    font-size: 12px;    
+}
+.commentsIcons li{  
+    display: inline;  
+    list-style-type: none;
+}
+button{  
+    background: none;
+    color: inherit;
+    border:0.2 solid #2d373c;
+    cursor: pointer;
+    outline-style: none;
+    margin-left: 5px;
+    margin-top: 1px;        
+}
+.formDiv{
+    margin-top: 3px;
+}
+.btnSpan{
+    margin-left: 5px;
+    font-weight: 700;
+}
+/*---------------------------------MEDIA------------------------------------------*/
+  @media screen and (max-width:768px){    
     .hom-navim ul{
         display: block;
         font-size: 16px; 
@@ -172,15 +245,14 @@ body{
         height: 55px;
     }
     .hom-nav-first{
-        margin-left: -10px;
         visibility: hidden;
     }
     .hom-nav-last{
-        margin-left: 35px;
+        margin-left: 50px;
         visibility: hidden;
     }
     .searchtxt{
-        width: 300px;
+        width: 200px;
     }
     .dropdown:hover .dropdown-content {
         display: inline-block;
@@ -193,7 +265,28 @@ body{
     }
     #togl{
         display: block;
-        margin-left: 35px;
+        margin-left: 25px;
+    }
+    .main{
+        display: flex; 
+        flex-wrap: wrap;
+        padding-left: 25px         
+    }
+    .sectionLeft{
+        flex-basis: 100%;
+    }
+    .sectionRight{
+        flex-basis: 100%;
+        background: inherit;
+        color: inherit;
+        border: none;
+    }
+    h4{
+        text-align: left;
+        text-decoration: underline;
+    }
+    .commentsIcons{
+        margin-left: -45px;
     }
 }
 @media screen and (min-width:768px) and (max-width:861px){

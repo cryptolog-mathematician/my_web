@@ -8,9 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="Css/home.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="main.js"></script>
 </head>
 
 <body>
+    <div class="container"></div>
     <nav class="hom-navim">
         <div id="togl" onclick="myTogl()">
             <div class="lineOne"></div>
@@ -33,7 +35,7 @@
             </ul>
         </div>
         <div class="hom-nav-last">
-            <form action="">
+            <form id="formNav" action="">
                 <input class="searchtxt" type="text" placeholder="Search.." name="search">
                 <button class="searchbtn" type="submit"><i class="fa fa-search"></i></button>
             </form>
@@ -57,7 +59,34 @@
         </div>
     </div>
 
-    <script src="main.js"></script>
+    <div class="main">
+        <section class="sectionLeft">
+            <h4>HELLO</h4>
+        </section>
+        <section id="sr" class="sectionRight">
+            <h4>Comments</h4>
+            <div class="commentsBox">
+                <div class="comments">
+                    <p>xxxxxxxx</p>
+                </div>
+                <div class="commentsIcons">
+                    <ul>
+                        <li><button><span>Like</span></button><span class="btnSpan">0</span></li>
+                        <li><button><span>Dislike</span></button><span class="btnSpan">0</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="formDiv">
+                <form id="addCom" action="">
+                    <textarea name="" id="takeCom" cols="50" rows="3" placeholder="add a comment" maxlength="250"></textarea>
+                    <br>
+                    <button id="myP">Add</button>
+                </form>
+            </div>
+        </section>
+    </div>
+    </div>
+    
 </body>
 
 </html>
