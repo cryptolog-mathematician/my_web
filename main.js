@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function(){
+//document.addEventListener('DOMContentLoaded', function(){
   /*-----------------------Slides-----------------------*/
   var slideIndex = 0;
   showSlides();
@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function(){
     var i;
     var slides = document.getElementsByClassName("mySlides");
     for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none"; 
+      slides[i].style.display = "none";
     }
     slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1} 
-    slides[slideIndex-1].style.display = "block"; 
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
     setTimeout(showSlides, 5000); // Change image every 5 seconds
   }
 
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     else if(toglStatu === true){
       gethomnavfirst.style.visibility= "hidden";
-      gethomnavlast.style.visibility= "hidden";    
+      gethomnavlast.style.visibility= "hidden";
       gethomnav.style.height= "55px";
 
       toglStatu = false;
@@ -52,9 +52,27 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 
   //-----------------------------------ADD Comments---------------
-  document.querySelector('#addCom').addEventListener("submit", function(e)  {
+  var cmnts = [];
+  function takeAllComments(){
+    if (localStorage.AllComments) {
+      cmnts = JSON.parse(localStorage.AllComments);
+      for (var i = 0; i < cmnts.length; i++) {
+        prepareCommentsHtmlCss(cmnts[i]);
+      }
+    }
+  }
+
+  document.querySelector('#addCom').addEventListener("submit", function(e){
     e.preventDefault();
-    
+    let texP=document.querySelector('#takeCom').value;
+    cmnts.push(texP);
+
+    localStorage.AllComments=JSON.stringify(cmnts);
+
+    prepareCommentsHtmlCss(texP);
+  })
+
+  function prepareCommentsHtmlCss(texP){
     let spanDislike=document.createElement('span');
     let buttonDislike=document.createElement('button');
     let liDislike=document.createElement('li');
@@ -67,13 +85,12 @@ document.addEventListener('DOMContentLoaded', function(){
     let divLikeDisLike=document.createElement('div');
     let spanCount=document.createElement('span');
     let count=document.createTextNode('0');
-    spanCount.appendChild(count);  
+    spanCount.appendChild(count);
     let spanCountL=document.createElement('span');
     let countL=document.createTextNode('0');
     spanCountL.appendChild(countL);
 
     let commentP=document.createElement('p');
-    let texP=document.querySelector('#takeCom').value;
     let commentPDiv=document.createElement('div');
 
     let commentBoxDiv=document.createElement('div');
@@ -84,6 +101,8 @@ document.addEventListener('DOMContentLoaded', function(){
     divLikeDisLike.classList.add('commentsIcons');
     spanCount.classList.add('btnSpan');
     spanCountL.classList.add('btnSpan');
+    buttonLike.classList.add('likeDislike');
+    buttonDislike.classList.add('likeDislike');
 
     buttonDislike.style.marginLeft='10px';
 
@@ -111,7 +130,28 @@ document.addEventListener('DOMContentLoaded', function(){
     let sectionRightDiv=document.querySelector('#sr');
     let insertPlace=document.querySelector('#formDiv');
     sectionRightDiv.insertBefore(commentBoxDiv, insertPlace);
-  })
+  }
 
- 
-})
+ //-----------------------------LIKEDISLIKE------------------------
+ document.querySelector('#sr').addEventListener('click', function(e){
+   if (e.target.className == 'likeDislike') {
+      if(e.target.firstChild.textContent== 'Like'){
+        let incrmnt= 1 + parseInt(e.target.nextSibling.textContent);
+        e.target.nextSibling.textContent=incrmnt;
+      }else {
+        let incrmnt= 1 + parseInt(e.target.nextSibling.textContent);
+        e.target.nextSibling.textContent=incrmnt;
+      }
+   }
+ })
+/*
+ let likeDislike = document.getElementsByClassName('likeDislike');
+ let btnspan = document.querySelectorAll('#sr .commentsIcons .btnSpan');
+ document.querySelector('#sr').addEventListener('click', function(){
+      let incrmnt= 1 + parseInt(btnspan[0].textContent);
+      btnspan[0].textContent=incrmnt;
+ })
+ document.querySelector('#sr').addEventListener('click', function(){
+    let incrmnt= 1 + parseInt(btnspan[1].textContent);
+    btnspan[1].textContent=incrmnt;
+ }) */
