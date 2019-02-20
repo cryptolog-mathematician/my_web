@@ -16,9 +16,9 @@
   }
 
   /*-----------------------Togl-----------------------*/
-  let toglStatu = false;
+  let toglStatu = true;
 
-  let myTogl = function(){
+  document.querySelector('#togl').addEventListener('click', function(){
     let gethomnav = document.querySelector(".hom-navim");
     let gethomnavfirst = document.querySelector(".hom-nav-first");
     let gethomnavlast = document.querySelector(".hom-nav-last");
@@ -27,52 +27,54 @@
     let getLine2 = document.querySelector(".lineTwo");
     let getLine3 = document.querySelector(".lineThree");
 
-    if(toglStatu === false){
+    if(toglStatu === true){
       gethomnavfirst.style.visibility= "visible";
       gethomnavlast.style.visibility= "visible";
       gethomnav.style.height= "auto";
 
-      toglStatu = true;
+      toglStatu = false;
       // for ikon
       getLine1.style.transform= "rotate(-45deg) translate(-6px, 6px)";
       getLine2.style.opacity= "0";
       getLine3.style.transform= "rotate(45deg) translate(-4px, -4px)";
     }
-    else if(toglStatu === true){
+    else if(toglStatu === false){
       gethomnavfirst.style.visibility= "hidden";
       gethomnavlast.style.visibility= "hidden";
       gethomnav.style.height= "55px";
 
-      toglStatu = false;
+      toglStatu = true;
       // for ikon
       getLine1.style.transform= "rotate(0) translate(0, 0)";
       getLine2.style.opacity= "1";
       getLine3.style.transform= "rotate(0) translate(0, 0)";
     }
-  }
+  })
 
   //-----------------------------------ADD Comments---------------
   var cmnts = [];
+
   function takeAllComments(){
-    if (localStorage.AllComments) {
-      cmnts = JSON.parse(localStorage.AllComments);
+    if (localStorage.AllCommentss) {
+      cmnts = JSON.parse(localStorage.AllCommentss);
       for (var i = 0; i < cmnts.length; i++) {
-        prepareCommentsHtmlCss(cmnts[i]);
+        prepareCommentsHtmlCss(cmnts[i].contentComment, cmnts[i].countLike, cmnts[i].countDislike);
       }
     }
   }
 
   document.querySelector('#addCom').addEventListener("submit", function(e){
     e.preventDefault();
-    let texP=document.querySelector('#takeCom').value;
-    cmnts.push(texP);
 
-    localStorage.AllComments=JSON.stringify(cmnts);
+    let texP = document.querySelector('#takeCom').value;
+    var myObje = {contentComment: texP, countLike: 0, countDislike: 0};
+    cmnts.push(myObje);
+    localStorage.AllCommentss = JSON.stringify(cmnts);
 
-    prepareCommentsHtmlCss(texP);
+    prepareCommentsHtmlCss(texP, 0, 0);
   })
 
-  function prepareCommentsHtmlCss(texP){
+  function prepareCommentsHtmlCss(texP, count, countL){
     let spanDislike=document.createElement('span');
     let buttonDislike=document.createElement('button');
     let liDislike=document.createElement('li');
@@ -84,11 +86,11 @@
     let dLike=document.createTextNode('Dislike');
     let divLikeDisLike=document.createElement('div');
     let spanCount=document.createElement('span');
-    let count=document.createTextNode('0');
-    spanCount.appendChild(count);
+    //let count=document.createTextNode(0);
+    spanCount.innerHTML = count;
     let spanCountL=document.createElement('span');
-    let countL=document.createTextNode('0');
-    spanCountL.appendChild(countL);
+    //let countL=document.createTextNode(0);
+    spanCountL.innerHTML = countL;
 
     let commentP=document.createElement('p');
     let commentPDiv=document.createElement('div');
@@ -125,7 +127,6 @@
 
     commentBoxDiv.appendChild(commentPDiv);
     commentBoxDiv.appendChild(divLikeDisLike);
-    // if eklenebilir...
 
     let sectionRightDiv=document.querySelector('#sr');
     let insertPlace=document.querySelector('#formDiv');
@@ -138,9 +139,32 @@
       if(e.target.firstChild.textContent== 'Like'){
         let incrmnt= 1 + parseInt(e.target.nextSibling.textContent);
         e.target.nextSibling.textContent=incrmnt;
-      }else {
+        var targetContent = e.target.parentNode.parentNode.parentNode.previousSibling.firstChild.textContent;
+        if (localStorage.AllCommentss) {
+          cmnts = JSON.parse(localStorage.AllCommentss);
+          for (var i = 0; i < cmnts.length; i++) {
+            if(cmnts[i].contentComment === targetContent){
+              cmnts[i].countDislike = e.target.nextSibling.textContent;
+              break;
+            }
+          }
+          localStorage.AllCommentss = JSON.stringify(cmnts);
+        }
+      }
+      if(e.target.firstChild.textContent== 'Dislike'){
         let incrmnt= 1 + parseInt(e.target.nextSibling.textContent);
         e.target.nextSibling.textContent=incrmnt;
+        var targetContent = e.target.parentNode.parentNode.parentNode.previousSibling.firstChild.textContent;
+        if (localStorage.AllCommentss) {
+          cmnts = JSON.parse(localStorage.AllCommentss);
+          for (var i = 0; i < cmnts.length; i++) {
+            if(cmnts[i].contentComment === targetContent){
+              cmnts[i].countLike = e.target.nextSibling.textContent;
+              break;
+            }
+          }
+          localStorage.AllCommentss = JSON.stringify(cmnts);
+        }
       }
    }
  })

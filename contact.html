@@ -1,0 +1,177 @@
+<!DOCTYPE <!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>IRFAN SIMSEK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="Css/home.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="Css/contact.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div>
+    <nav class="hom-navim">
+        <div id="togl" onclick="myTogl()">
+            <div class="lineOne"></div>
+            <div class="lineTwo"></div>
+            <div class="lineThree"></div>
+        </div>
+        <div class="hom-nav-first">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="firsttryhakkimda.html">About</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Dropdown</a>
+                    <div class="dropdown-content">
+                        <a href="#">Cryptology</a>
+                        <a href="#">Programing</a>
+                        <a href="#">Mathematics</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="hom-nav-last">
+            <form id="formNav" action="">
+                <input class="searchtxt" type="text" placeholder="Search.." name="search">
+                <button class="searchbtn" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </nav>
+    <div class="main mainC">
+          <form action="" method="get">
+                <div class="topTablesDiv">
+                    <div class="kisiselBilgi">
+                        <h3>Kisisel Bilgiler</h3>
+                        <table class="tbl">
+                            <tr>
+                                <td class="std"><label for="ad">Ad:</label> </td>
+                                <td class="std1"><input name="" id="ad" type="text" placeholder="Adinizi giriniz"
+                                        required="required"></td>
+                            </tr>
+                            <tr>
+                                <td class="std"><label for="soyad">Soyad:</label></td>
+                                <td class="std1"><input name="" id="soyad" type="text" placeholder="Soyadinizi giriniz"
+                                        required="required"></td>
+                            </tr>
+                            <tr>
+                                <td class="std"><label for="dt">Dogum Tarihi:</label></td>
+                                <td class="std1"><input id="dt" name="" type="date"></td>
+                            </tr>
+                            <tr>
+                                <td class="std"><label for="tel">Telefon:</label> </td>
+                                <td class="std1"><input id="tel" name="" type="text" placeholder="(xxx) xxx xx xx"></td>
+                            </tr>
+                            <tr>
+                                <td class="std"><label for="ma">Mail Adresi:</label> </td>
+                                <td class="std1"><input id="ma" name="" type="email" placeholder="Mail adresinizi giriniz"
+                                        required="required"></td>
+                            </tr>
+                            <tr>
+                                <td class="std">Cinsiyet:</td>
+                                <td class="std1"><input class="onay" name="Cinsiyet" type="radio" value=""
+                                        required="required">Erkek
+                                    <input class="onay" name="Cinsiyet" type="radio" value="">Kadin
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="egitimDurumu">
+                        <h3>Egitim Durumu</h3>
+                        <table class="tbl">
+                            <tr>
+                                <td class="std">Ilkokul:</td>
+                                <td class="std1"><input name="" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="std">Ortaokul:</td>
+                                <td class="std1"><input name="" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="std">Lise:</td>
+                                <td class="std1"><input name="" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="std">Uviversite:</td>
+                                <td class="std1"><input name="" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="std">Yuksek Lisans:</td>
+                                <td class="std1"><input name="" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="std">Doktora:</td>
+                                <td class="std1"><input name="" type="text"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="buttomTablesDiv">
+                    <div class="ilgiAlan">
+                        <h3>Ilgi Alanlari</h3>
+                        <table class="tbl">
+                            <tr>
+                                <td class="std1"><input class="onay" name="" type="checkbox" value=""><span class="spn">Sanat</span></td>
+                            </tr>
+                            <tr>
+                                <td class="std1"><input class="onay" name="" type="checkbox" value="">Bilim</td>
+                            </tr>
+                            <tr>
+                                <td class="std1"><input class="onay" name="" type="checkbox" value="">Spor</td>
+                            </tr>
+                            <tr>
+                                <td class="std1"><input class="onay" name="" type="checkbox" value="">Muzik</td>
+                            </tr>
+                            <tr>
+                                <td class="std1"><input id="digerilgi" class="onay" name="" type="checkbox" value="">Diger
+                                    <input id='dilgi' class="digerbecerim" type="hidden" name="digerilgi" value=""
+                                        placeholder="Diger ilgilerinizi giriniz" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="beceriler">
+                        <h3>Beceriler</h3>
+                        <table class="tbl">
+                            <tr>
+                                <td class="std1"><input class="onay" name="" type="checkbox" value="" />java</td>
+                                <td class="std1"><input class="onay" name="" type="checkbox" value="" />SQL</td>
+                            </tr>
+                            <tr>
+                                <td class="std1"><input class="onay" name="" type="checkbox" value="">js</td>
+                                <td class="std1"><input class="onay" name="" type="checkbox" value="" />PHP</td>
+                            </tr>
+                            <tr>
+                                <td class="std1"><input class="onay" name="" type="checkbox" value="" />HTML</td>
+                                <td class="std1"><input class="onay" name="" type="checkbox" value="" />JSON</td>
+                            </tr>
+                            <tr>
+                                <td class="std1"><input class="onay" name="" type="checkbox" value="" />CSS</td>
+                                <td class="std1"><input class="onay" name="" type="checkbox" value="" />c#</td>
+                            </tr>
+                            <tr>
+                                <td class="std1" colspan="2"><input id="digerbeceri" class="onay" name="" type="checkbox" value=""/>Diger
+                                    <input id="dbeceri" class="digerbecerim" type="hidden" name="digerbeceri" value=""
+                                        placeholder="Diger Becerilerinizi giriniz" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="mesajiniz">
+                    <h3>Mesajiniz</h3>
+                    <textarea class="tarea"></textarea> <br>
+                    <button class="btn">Gonder</button>
+                    <input id="reset" type="reset" value="Reset"/>
+
+                </div>
+        </form>
+    </div>
+  </div>
+
+  <script src="js/contact.js"></script>
+</body>
+
+</html>
