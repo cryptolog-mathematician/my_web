@@ -1,0 +1,36 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+.mdiv {
+  width: 95%;
+  height: auto;
+  border: 1px solid rgb(22, 22, 34);
+  margin: auto;
+  padding: 10px 10px 10px 20px;
+  background: #2d373c;
+  margin-top: 1px;
+}
+table {
+  margin: auto;
+  font-size: 16px
+}
+h1 {
+  font-size: 20px;
+  text-decoration: underline
+}
+.sdiv1 {
+  text-align: justify;
+  font-size: 14px
+}
+.td1 {
+  text-align: right;
+  padding: 0 10px 0 0;
+  font-style: oblique;
+  font-size: 18px
+}
